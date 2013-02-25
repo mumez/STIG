@@ -8,6 +8,7 @@ run: anArgumentArray
 				cr;
 				show: anArgumentArray first , ': ' , self packageName , '...'].
 	process := ExternalProcess defaultClass new.
+	process encoding: Locale current defaultEncoding.
 	time := 
 			[result := process fork: 'git' arguments: globalArgs , anArgumentArray]
 					timeToRun.
