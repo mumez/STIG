@@ -13,7 +13,7 @@ setSuperToClassBlueprint: blueprint using: properties
 		superklass ifNil: [ | candidates |
 			candidates := Smalltalk allNameSpaces select: [:each | (each bindingFor: superref) notNil].
 			candidates isEmpty ifTrue: [^ Transcript cr; show: 'No superclass found. Resolve this class first: ', superref printString].
-			candidates size > 1 ifFalse: [^ Transcript cr; show: 'Ambiguous cass name: ', superref, ' Mutiple candidates: ', candidates printString].
+			candidates size > 1 ifTrue: [^ Transcript cr; show: 'Ambiguous cass name: ', superref, ' Mutiple candidates: ', candidates printString].
 			superklass := candidates first at: superref.
 		]
 	].
