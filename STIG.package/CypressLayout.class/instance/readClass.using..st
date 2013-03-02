@@ -2,7 +2,7 @@ loading
 readClass: aFilename using: fromDisk
 	"For FileTree compatibility"
 
-	| blueprint properties file reference |
+	| blueprint properties file reference classvarsNames |
 	properties := JSON read: (fromDisk fileContents: aFilename) readStream.
 	reference := self makeReference: properties.
 	fromDisk reference: reference.
@@ -29,4 +29,10 @@ readClass: aFilename using: fromDisk
 				ifTrue: [fromDisk fileContents: file]
 				ifFalse: ['']).
 	fromDisk addBlueprint: blueprint.
+
+	classvarsNames := (properties at: 'classvars' ifAbsent: [Array new]).
+	classvarsNames do: [:each |
+		self readClassVariable: aFilename named: each in: reference using: fromDisk
+	].
+
 	^fromDisk
