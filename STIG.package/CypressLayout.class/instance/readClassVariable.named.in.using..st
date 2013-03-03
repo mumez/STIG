@@ -9,7 +9,7 @@ readClassVariable: aFilename named: classVarName in: classBindingReference using
 	blueprint := SharedVariableBlueprint new.
 	blueprint original: aFilename.
 	blueprint reference: reference.
-	blueprint category: nil .
+	blueprint category: 'accessing' .
 	blueprint isPrivate:  false .
 	blueprint isConstant: false.
 	blueprint initializer: nil .

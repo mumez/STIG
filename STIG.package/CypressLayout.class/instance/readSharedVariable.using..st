@@ -7,7 +7,7 @@ readSharedVariable: aFilename using: fromDisk
 	blueprint := SharedVariableBlueprint new.
 	blueprint original: aFilename.
 	blueprint reference: reference.
-	blueprint category: (properties at: 'category' ifAbsent: [ nil ]).
+	blueprint category: (properties at: 'category' ifAbsent: ['accessing']).
 	blueprint isPrivate: (properties at: 'private' ifAbsent: [ false ]).
 	blueprint isConstant: (properties at: 'constant' ifAbsent: [ false ]).
 	blueprint initializer: (properties at: 'initializer' ifAbsent: [ nil ]).
