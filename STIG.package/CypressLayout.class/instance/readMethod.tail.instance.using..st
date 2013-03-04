@@ -9,6 +9,6 @@ readMethod: aFilename tail: aTail instance: isInstance using: fromDisk
 	blueprint classReference: fromDisk reference.
 	blueprint selector: (self decodeSelector: selector) asSymbol.
 	blueprint category: (source upTo: Character cr).
-	blueprint source: source upToEnd.
+	blueprint source: (self dropWhitespacesFrom: source upToEnd).
 	fromDisk addBlueprint: blueprint.
 	^fromDisk
