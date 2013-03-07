@@ -5,4 +5,6 @@ stigFromDisk: aFromDisk preview: aBoolean
 	layout := DirectoryLayout root: self stigRoot.
 	deltas := layout deltaSetsFrom: self to: aFromDisk.
 	compositeChange := deltas buildCompositeChange.
-	aBoolean ifTrue: [compositeChange inspect] ifFalse: [compositeChange execute]
+	aBoolean
+		ifTrue: [compositeChange changesSize > 0 ifTrue: [compositeChange inspect] ifFalse: [Transcript cr; show: 'No changes in: ',  self  printString]]
+		ifFalse: [compositeChange execute]

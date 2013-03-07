@@ -17,13 +17,14 @@ fromBlueprint: aClassBlueprint
 	instanceVariableNames: <6p>
 	classInstanceVariableNames: <7p>
 	imports: <8p>
-	category: '''''
-				expandMacrosWithArguments: (Array
-						with: nameSpaceName
-						with: aClassBlueprint reference simpleName
-						with: aClassBlueprint superclassReference
-						with: indexedType) , (Array
-									with: isPrivate
-									with: aClassBlueprint instanceVariablesString
-									with: aClassBlueprint classInstanceVariablesString
-									with: aClassBlueprint importsString)
+	category: <9p>'
+				expandMacrosWithArguments: (OrderedCollection new  
+						add: nameSpaceName;
+						add: aClassBlueprint reference simpleName;
+						add: aClassBlueprint superclassReference;
+						add: indexedType;
+						add: isPrivate;
+						add: aClassBlueprint instanceVariablesString;
+						add: aClassBlueprint classInstanceVariablesString;
+						add: aClassBlueprint importsString;
+						add: aClassBlueprint category; yourself)
